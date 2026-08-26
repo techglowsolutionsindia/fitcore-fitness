@@ -1,0 +1,43 @@
+/* ==================================================
+   ACCORDION COMPONENT
+================================================== */
+
+.accordion {
+  max-width: 950px;
+  margin-inline: auto;
+}
+
+.accordion-item {
+  margin-bottom: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+.accordion-trigger {
+  width: 100%;
+  padding: 19px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-heading);
+  background: transparent;
+  text-align: left;
+  font-weight: 700;
+}
+
+.accordion-icon {
+  color: var(--color-primary-hover);
+  font-size: 1.4rem;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-content p {
+  padding: 0 22px 20px;
+}

@@ -1,0 +1,59 @@
+/* ==================================================
+   BUTTON COMPONENTS
+================================================== */
+
+.btn {
+  min-height: 46px;
+  padding: 0 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  color: var(--color-dark);
+  background: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn-dark {
+  color: var(--color-white);
+  background: var(--color-dark);
+}
+
+.btn-outline {
+  color: var(--color-dark);
+  border-color: var(--color-dark);
+}
+
+.btn-outline:hover {
+  color: var(--color-white);
+  background: var(--color-dark);
+}
+
+.btn-outline-light {
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline-light:hover {
+  color: var(--color-dark);
+  background: var(--color-white);
+}

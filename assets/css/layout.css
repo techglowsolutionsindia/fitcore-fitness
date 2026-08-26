@@ -1,0 +1,77 @@
+/* ==================================================
+   GLOBAL LAYOUT
+================================================== */
+
+.container {
+  width: min(calc(100% - 48px), var(--container-width));
+  margin-inline: auto;
+}
+
+.section {
+  min-height: 100vh;
+  padding: var(--space-2xl) 0;
+  display: flex;
+  align-items: center;
+}
+
+.section-heading {
+  margin-bottom: 42px;
+}
+
+.section-heading.centered {
+  text-align: center;
+}
+
+.section-title {
+  margin-top: 7px;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 800;
+}
+
+.section-title span {
+  color: var(--color-primary);
+}
+
+.section-text {
+  max-width: 610px;
+  margin: 22px 0 30px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--color-primary-hover);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.centered-action {
+  margin-top: 35px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .section {
+    min-height: auto;
+    padding: 75px 0;
+  }
+
+  .split-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: min(calc(100% - 30px), var(--container-width));
+  }
+}

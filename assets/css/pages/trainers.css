@@ -1,0 +1,1093 @@
+/* ==================================================
+   TRAINERS HERO SECTION STARTED
+================================================== */
+
+.trainers-hero {
+  position: relative;
+  min-height: 560px;
+  padding-top: 76px;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    #111111 0%,
+    #171717 38%,
+    #242424 58%,
+    #4a4a4a 100%
+  );
+}
+
+/* ==================================================
+   TRAINERS HERO LAYOUT
+================================================== */
+
+.trainers-hero-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 46% 54%;
+  align-items: center;
+  min-height: 484px;
+}
+
+/* ==================================================
+   TRAINERS HERO CONTENT
+================================================== */
+
+.trainers-hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 650px;
+  padding-block: 72px 64px;
+}
+
+.trainers-hero-content .eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.trainers-hero-content h1 {
+  max-width: 650px;
+  margin-bottom: 18px;
+  color: #ffffff;
+  font-size: clamp(3rem, 5vw, 5.2rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+}
+
+.trainers-hero-content h1 span {
+  display: block;
+  color: var(--primary-color);
+}
+
+.trainers-hero-content p {
+  max-width: 610px;
+  margin-bottom: 28px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ==================================================
+   TRAINERS HERO IMAGE
+================================================== */
+
+.trainers-hero-image {
+  position: absolute;
+  top: 0;
+  right: calc((100vw - 100%) / -2);
+  bottom: 0;
+  width: 62vw;
+  max-width: 1040px;
+  z-index: 1;
+}
+
+.trainers-hero-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      #171717 0%,
+      rgba(23, 23, 23, 0.95) 7%,
+      rgba(23, 23, 23, 0.66) 18%,
+      rgba(23, 23, 23, 0.22) 34%,
+      rgba(23, 23, 23, 0) 52%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.06) 0%,
+      rgba(0, 0, 0, 0) 60%,
+      rgba(0, 0, 0, 0.16) 100%
+    );
+}
+
+.trainers-hero-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center right;
+}
+
+/* ==================================================
+   TRAINERS HERO RESPONSIVE
+================================================== */
+
+@media (max-width: 1100px) {
+  .trainers-hero-layout {
+    grid-template-columns: 52% 48%;
+  }
+
+  .trainers-hero-image {
+    width: 58vw;
+  }
+
+  .trainers-hero-content h1 {
+    font-size: clamp(3rem, 5.6vw, 4.6rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .trainers-hero {
+    min-height: auto;
+  }
+
+  .trainers-hero-layout {
+    display: block;
+    min-height: 650px;
+  }
+
+  .trainers-hero-content {
+    max-width: 600px;
+    padding-block: 72px;
+  }
+
+  .trainers-hero-image {
+    right: -180px;
+    width: 78%;
+    opacity: 0.55;
+  }
+
+  .trainers-hero-image::before {
+    background: linear-gradient(
+      90deg,
+      #151515 0%,
+      rgba(21, 21, 21, 0.9) 35%,
+      rgba(21, 21, 21, 0.35) 72%,
+      rgba(21, 21, 21, 0) 100%
+    );
+  }
+}
+
+@media (max-width: 600px) {
+  .trainers-hero-layout {
+    min-height: 600px;
+  }
+
+  .trainers-hero-content {
+    padding-block: 64px 56px;
+  }
+
+  .trainers-hero-content h1 {
+    font-size: clamp(2.6rem, 12vw, 3.7rem);
+  }
+
+  .trainers-hero-content p {
+    max-width: 92%;
+    font-size: 0.95rem;
+  }
+
+  .trainers-hero-image {
+    right: -210px;
+    width: 115%;
+    opacity: 0.42;
+  }
+}
+
+/* ==================================================
+   TRAINERS HERO SECTION ENDED
+================================================== */
+
+/* ==================================================
+   MEET OUR TRAINERS CARDS STARTED
+================================================== */
+
+.trainers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 42px;
+}
+
+/* ==================================================
+   TRAINER CARD
+================================================== */
+
+.trainer-card {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.trainer-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.11);
+}
+
+/* ==================================================
+   TRAINER IMAGE
+================================================== */
+
+.trainer-image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: #171717;
+}
+
+.trainer-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  transition: transform 0.45s ease;
+}
+
+.trainer-card:hover .trainer-image img {
+  transform: scale(1.045);
+}
+
+/* ==================================================
+   TRAINER NUMBER
+================================================== */
+
+.trainer-number {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: #111111;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+/* ==================================================
+   TRAINER CONTENT
+================================================== */
+
+.trainer-content {
+  padding: 22px 22px 24px;
+}
+
+.trainer-role {
+  display: block;
+  margin-bottom: 8px;
+
+  color: var(--primary-color);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.trainer-content h3 {
+  margin: 0 0 10px;
+  color: #111111;
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.trainer-content > p {
+  min-height: 66px;
+  margin: 0 0 16px;
+
+  color: #666666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ==================================================
+   TRAINER META DETAILS
+================================================== */
+
+.trainer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.trainer-meta span {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 30px;
+  padding: 6px 10px;
+
+  border-radius: 30px;
+  background: #f4f4f4;
+  color: #555555;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ==================================================
+   TRAINER BOOKING LINK
+================================================== */
+
+.trainer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #111111;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    gap 0.3s ease;
+}
+
+.trainer-link:hover {
+  gap: 10px;
+  color: var(--primary-color);
+}
+
+/* ==================================================
+   TRAINER CARDS RESPONSIVE
+================================================== */
+
+@media (max-width: 1100px) {
+  .trainers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .trainer-image {
+    height: 330px;
+  }
+}
+
+@media (max-width: 700px) {
+  .trainers-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .trainer-image {
+    height: 420px;
+  }
+
+  .trainer-content > p {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .trainer-image {
+    height: 350px;
+  }
+
+  .trainer-content {
+    padding: 20px;
+  }
+}
+
+/* ==================================================
+   MEET OUR TRAINERS CARDS ENDED
+================================================== */
+
+/* ==================================================
+   MEET OUR TRAINERS CARDS ENDED
+================================================== */
+
+/* ==================================================
+   TRAINER SPECIALIZATIONS SECTION STARTED
+================================================== */
+
+.trainer-specializations {
+  position: relative;
+  padding: 10px 0 10px;
+  background: #f8f8f8;
+}
+
+.trainer-specializations .section-heading {
+  max-width: 900px;
+  margin-inline: auto;
+  margin-bottom: 48px;
+}
+
+.trainer-specializations .eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.trainer-specializations .section-title {
+  margin-bottom: 14px;
+  color: #111111;
+}
+
+.trainer-specializations .trainers-section-intro {
+  max-width: 720px;
+  margin-inline: auto;
+  color: #666666;
+  line-height: 1.7;
+}
+
+/* ==================================================
+   SPECIALIZATION GRID
+================================================== */
+
+.specialization-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* ==================================================
+   SPECIALIZATION CARD
+================================================== */
+
+.specialization-card {
+  position: relative;
+  min-height: 230px;
+  padding: 30px 26px 28px;
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 14px;
+
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.specialization-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: var(--primary-color);
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.specialization-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(255, 193, 7, 0.35);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.09);
+}
+
+.specialization-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ==================================================
+   SPECIALIZATION NUMBER
+================================================== */
+
+.specialization-card > span {
+  display: inline-grid;
+  place-items: center;
+
+  width: 46px;
+  height: 46px;
+  margin-bottom: 24px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 193, 7, 0.14);
+  color: var(--primary-color);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+/* ==================================================
+   SPECIALIZATION CONTENT
+================================================== */
+
+.specialization-card h3 {
+  margin: 0 0 12px;
+
+  color: #111111;
+
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.specialization-card p {
+  margin: 0;
+
+  color: #666666;
+
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ==================================================
+   SPECIALIZATION DECORATIVE NUMBER
+================================================== */
+
+.specialization-card::after {
+  content: attr(data-specialization);
+
+  position: absolute;
+  right: 18px;
+  bottom: -12px;
+
+  color: rgba(17, 17, 17, 0.035);
+
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+/* ==================================================
+   TRAINER SPECIALIZATIONS RESPONSIVE
+================================================== */
+
+@media (max-width: 1100px) {
+  .specialization-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==================================================
+   TRAINER SPECIALIZATIONS RESPONSIVE
+================================================== */
+
+@media (max-width: 700px) {
+  .trainer-specializations {
+    padding-block: 30px;
+  }
+
+  .specialization-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .specialization-card {
+    min-height: auto;
+  }
+}
+
+/* ==================================================
+   TRAINER SPECIALIZATIONS SECTION ENDED
+================================================== */
+
+/* ==================================================
+   TRAINER SPECIALIZATIONS SECTION ENDED
+================================================== */
+
+/* ==================================================
+   WHY FITCORE COACHES SECTION STARTED
+================================================== */
+
+.coaching-section {
+  position: relative;
+  padding-block: 92px;
+  overflow: hidden;
+  background: #111111;
+}
+
+.coaching-section::before {
+  content: "";
+  position: absolute;
+  top: -160px;
+  left: -120px;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+  background: rgba(255, 193, 7, 0.05);
+  filter: blur(10px);
+}
+
+/* ==================================================
+   WHY FITCORE COACHES LAYOUT
+================================================== */
+
+.coaching-layout {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+  gap: 70px;
+  align-items: center;
+}
+
+/* ==================================================
+   WHY FITCORE COACHES CONTENT
+================================================== */
+
+.coaching-content {
+  max-width: 760px;
+}
+
+.coaching-content .eyebrow {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.coaching-content .section-title {
+  max-width: 720px;
+  margin-bottom: 18px;
+
+  color: #ffffff;
+
+  font-size: clamp(2.6rem, 4.3vw, 4.4rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.coaching-content > p {
+  max-width: 700px;
+  margin: 0 0 30px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+/* ==================================================
+   WHY FITCORE COACHES LIST
+================================================== */
+
+.coaching-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 28px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.coaching-list li {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 42px;
+  padding-left: 34px;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.coaching-list li::before {
+  content: "✓";
+
+  position: absolute;
+  left: 0;
+
+  display: grid;
+  place-items: center;
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background: var(--primary-color);
+  color: #111111;
+
+  font-size: 0.68rem;
+  font-weight: 900;
+}
+
+/* ==================================================
+   WHY FITCORE COACHES HIGHLIGHT CARD
+================================================== */
+
+.coaching-highlight {
+  position: relative;
+
+  padding: 42px 38px;
+
+  overflow: hidden;
+
+  background: #1c1c1c;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+.coaching-highlight::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: var(--primary-color);
+}
+
+.coaching-highlight::after {
+  content: "25+";
+
+  position: absolute;
+  right: -10px;
+  bottom: -28px;
+
+  color: rgba(255, 255, 255, 0.025);
+
+  font-size: 9rem;
+  font-weight: 900;
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+/* ==================================================
+   WHY FITCORE COACHES HIGHLIGHT NUMBER
+================================================== */
+
+.coaching-highlight-number {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--primary-color);
+
+  font-size: clamp(3.8rem, 6vw, 5.8rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+/* ==================================================
+   WHY FITCORE COACHES HIGHLIGHT CONTENT
+================================================== */
+
+.coaching-highlight h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 14px;
+
+  color: #ffffff;
+
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.coaching-highlight p {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 26px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.coaching-highlight .btn {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==================================================
+   WHY FITCORE COACHES RESPONSIVE
+================================================== */
+
+@media (max-width: 1050px) {
+  .coaching-layout {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .coaching-content {
+    max-width: 820px;
+  }
+
+  .coaching-highlight {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 700px) {
+  .coaching-section {
+    padding-block: 72px;
+  }
+
+  .coaching-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .coaching-highlight {
+    padding: 34px 28px;
+  }
+}
+
+/* ==================================================
+   WHY FITCORE COACHES SECTION ENDED
+================================================== */
+
+/* ==================================================
+   WHY FITCORE COACHES SECTION ENDED
+================================================== */
+
+/* ==================================================
+   TRAINERS FAQ SECTION STARTED
+================================================== */
+
+.trainers-faq {
+  position: relative;
+  padding-block: 72px;
+  background: #f8f8f8;
+}
+
+.trainers-faq .faq-container {
+  max-width: 1060px;
+}
+
+.trainers-faq .section-heading {
+  max-width: 900px;
+  margin-inline: auto;
+  margin-bottom: 38px;
+}
+
+.trainers-faq .eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.trainers-faq .section-title {
+  margin-bottom: 12px;
+  color: #111111;
+  font-size: clamp(2.7rem, 4.5vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.trainers-faq .trainers-section-intro {
+  max-width: 700px;
+  margin-inline: auto;
+
+  color: #666666;
+
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ==================================================
+   TRAINERS FAQ ACCORDION
+================================================== */
+
+.trainers-faq .accordion {
+  display: grid;
+  gap: 12px;
+}
+
+.trainers-faq .accordion-item {
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 12px;
+
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.trainers-faq .accordion-item:hover {
+  border-color: rgba(255, 193, 7, 0.45);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
+}
+
+/* ==================================================
+   TRAINERS FAQ QUESTION
+================================================== */
+
+/* ==================================================
+   TRAINERS FAQ QUESTION
+================================================== */
+
+.trainers-faq .accordion-trigger {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  width: 100%;
+  min-height: 72px;
+  padding: 18px 22px;
+
+  background: transparent;
+  border: 0;
+
+  color: #111111;
+
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Reduce question-to-answer gap when FAQ is open */
+.trainers-faq .accordion-trigger[aria-expanded="true"] {
+  min-height: auto;
+  padding-bottom: 7px;
+}
+
+.trainers-faq .accordion-trigger > span:first-child {
+  flex: 1;
+  text-align: left;
+
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+/* ==================================================
+   TRAINERS FAQ ICON
+================================================== */
+
+.trainers-faq .accordion-icon {
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 193, 7, 0.14);
+  color: var(--primary-color);
+
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.trainers-faq .accordion-trigger[aria-expanded="true"] .accordion-icon {
+  transform: rotate(45deg);
+
+  background: var(--primary-color);
+  color: #111111;
+}
+
+/* ==================================================
+   TRAINERS FAQ ANSWER
+================================================== */
+
+.trainers-faq .accordion-content {
+  display: none;
+
+  padding: 0 22px 16px;
+}
+
+.trainers-faq .accordion-trigger[aria-expanded="true"] + .accordion-content {
+  padding-top: 0;
+}
+
+.trainers-faq .accordion-item.active .accordion-content,
+.trainers-faq .accordion-trigger[aria-expanded="true"] + .accordion-content {
+  display: block;
+}
+
+.trainers-faq .accordion-content p {
+  max-width: none;
+  margin: 0;
+
+  color: #666666;
+
+  text-align: left;
+
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* ==================================================
+   TRAINERS FAQ ACTIVE ITEM
+================================================== */
+
+.trainers-faq .accordion-item:has(.accordion-trigger[aria-expanded="true"]) {
+  border-color: rgba(255, 193, 7, 0.55);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+}
+
+/* ==================================================
+   TRAINERS FAQ RESPONSIVE
+================================================== */
+
+@media (max-width: 700px) {
+  .trainers-faq {
+    padding-block: 58px;
+  }
+
+  .trainers-faq .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .trainers-faq .accordion-trigger {
+    min-height: 70px;
+    padding: 18px;
+  }
+
+  .trainers-faq .accordion-trigger > span:first-child {
+    font-size: 0.94rem;
+  }
+
+  .trainers-faq .accordion-content {
+    padding: 0 18px 18px;
+  }
+
+  .trainers-faq .accordion-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* ==================================================
+   TRAINERS FAQ SECTION ENDED
+================================================== */
