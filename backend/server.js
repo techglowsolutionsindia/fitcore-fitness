@@ -79,6 +79,13 @@ async function brevoRequest(path, payload) {
   });
 
   if (!response.ok) {
+    const errorBody = await response.text();
+
+    console.error("Brevo API error:", {
+      status: response.status,
+      body: errorBody,
+    });
+
     throw new Error(`Brevo API request failed: HTTP ${response.status}`);
   }
 
