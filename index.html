@@ -1577,9 +1577,31 @@
           <h3>Newsletter</h3>
           <p>Get gym updates, offers and training news.</p>
 
-          <form class="newsletter-form">
-            <input type="email" placeholder="Your email address" />
+          <form class="newsletter-form" id="newsletterForm">
+            <input
+              type="email"
+              id="newsletterEmail"
+              name="email"
+              placeholder="Your email address"
+              aria-label="Newsletter email address"
+              autocomplete="email"
+              required
+            />
+
+            <label class="newsletter-consent">
+              <input
+                type="checkbox"
+                id="newsletterConsent"
+                name="consent"
+                required
+              />
+              I agree to receive fitness updates, offers and newsletters by
+              email.
+            </label>
+
             <button class="btn btn-primary" type="submit">Subscribe</button>
+
+            <p id="newsletterMessage" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>
