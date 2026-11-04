@@ -1,0 +1,19 @@
+{
+  "name": "fitcore-fitness-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FitCore Fitness Render and Brevo backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}

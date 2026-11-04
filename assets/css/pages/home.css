@@ -1951,31 +1951,142 @@ body.modal-open {
    CTA BANNER
 ================================================== */
 
+/* CTA Banner Section Started */
 .cta-banner {
-  padding: 55px 0;
+  min-height: 50vh;
+  padding: 65px 0;
+  display: flex;
+  align-items: center;
   color: var(--color-white);
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.76)),
+    linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)),
     url("../../images/hero/cta-gym.webp") center / cover no-repeat;
 }
 
+/* CTA Banner Content Started */
 .cta-banner-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+  justify-content: center;
+  text-align: center;
 }
 
+/* CTA Banner Inner Started */
+.cta-banner-inner {
+  width: 100%;
+  max-width: 1050px;
+  margin-inline: auto;
+}
+
+/* CTA Banner Eyebrow Started */
+.cta-banner-eyebrow {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* CTA Banner Heading Started */
 .cta-banner h2 {
-  margin: 6px 0;
+  margin: 0 0 18px;
   color: var(--color-white);
-  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 1.1;
   text-transform: uppercase;
 }
 
 .cta-banner h2 strong {
   color: var(--color-primary);
 }
+
+/* CTA Banner Description Started */
+.cta-banner-description {
+  max-width: 780px;
+  margin: 0 auto 25px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* CTA Banner Highlights Started */
+.cta-banner-highlights {
+  max-width: 650px;
+  margin: 0 auto 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 28px;
+  text-align: left;
+}
+
+.cta-banner-highlights span {
+  color: var(--color-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* CTA Banner Buttons Started */
+.cta-banner-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cta-banner-actions .btn {
+  min-width: 190px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+/* CTA Banner Outline Button Started */
+.cta-banner-actions .btn-outline {
+  color: var(--color-white);
+  background: transparent;
+  border: 2px solid var(--color-white);
+}
+
+.cta-banner-actions .btn-outline:hover {
+  color: var(--color-dark);
+  background: var(--color-white);
+}
+
+/* CTA Banner Responsive Started */
+@media (max-width: 600px) {
+  .cta-banner {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  .cta-banner h2 {
+    font-size: 2.4rem;
+  }
+
+  .cta-banner-description {
+    font-size: 0.9rem;
+  }
+
+  .cta-banner-highlights {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    gap: 12px;
+  }
+
+  .cta-banner-actions {
+    flex-direction: column;
+  }
+
+  .cta-banner-actions .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+/* CTA Banner Section Ended */
 
 .cta-banner-content > div > span {
   color: var(--color-primary);
@@ -2114,11 +2225,6 @@ body.modal-open {
 
     border-right: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  }
-
-  .cta-banner-content {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
 

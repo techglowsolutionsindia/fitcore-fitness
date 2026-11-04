@@ -172,42 +172,98 @@ if (testimonialsSlider) {
 }
 
 /* ==================================================
-   CONTACT FORM VALIDATION + SUCCESS MESSAGE
+   CONTACT FORM VALIDATION + EMAIL SUBMISSION
 ================================================== */
 
 const contactForm = document.getElementById("contactForm");
 const contactSuccessMessage = document.getElementById("contactSuccessMessage");
 
 if (contactForm && contactSuccessMessage) {
-  let successTimer;
+  const contactSubmitButton = contactForm.querySelector('[type="submit"]');
 
-  contactForm.addEventListener("submit", function (event) {
+  let successTimer;
+  let isSubmitting = false;
+
+  /* Contact Form Submission Started */
+  contactForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    /* STOP IF ANY REQUIRED FIELD IS INVALID */
+    if (isSubmitting) return;
+
     if (!contactForm.checkValidity()) {
       contactForm.reportValidity();
       return;
     }
 
-    /* REMOVE ANY PREVIOUS TIMER */
     clearTimeout(successTimer);
+    contactSuccessMessage.classList.remove("show");
 
-    /* ==================================================
-   DELAY SUCCESS MESSAGE TO SIMULATE FORM PROCESSING
-================================================== */
+    const formData = new FormData(contactForm);
 
-    setTimeout(() => {
-      /* SHOW SUCCESS MESSAGE AFTER 1.5 SECONDS */
-      contactSuccessMessage.classList.add("show");
+    const payload = {
+      name: String(formData.get("name") || "").trim(),
+      phone: String(formData.get("phone") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      message: String(formData.get("message") || "").trim(),
+    };
 
-      /* CLEAR ALL FORM FIELDS */
-      contactForm.reset();
+    if (Object.values(payload).some((value) => !value)) {
+      alert("Please complete all required fields.");
+      return;
+    }
 
-      /* HIDE SUCCESS MESSAGE AFTER 5 SECONDS */
-      successTimer = setTimeout(() => {
-        contactSuccessMessage.classList.remove("show");
-      }, 3000);
-    }, 1500);
+    isSubmitting = true;
+
+    if (contactSubmitButton) {
+      contactSubmitButton.disabled = true;
+      contactSubmitButton.textContent = "SENDING...";
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (
+        response.ok &&
+        result.ownerEmailAccepted === true &&
+        result.customerEmailAccepted === true
+      ) {
+        contactSuccessMessage.textContent =
+          "Your message was submitted successfully. Thank you for contacting FitCore Fitness!";
+
+        contactSuccessMessage.classList.add("show");
+        contactForm.reset();
+
+        successTimer = setTimeout(() => {
+          contactSuccessMessage.classList.remove("show");
+        }, 5000);
+      } else {
+        alert(
+          result.message ||
+            "We could not complete your enquiry. Please contact FitCore Fitness directly.",
+        );
+      }
+    } catch (error) {
+      console.error("FitCore Fitness contact form error:", error);
+
+      alert(
+        "Unable to connect to the enquiry service. Please try again later.",
+      );
+    } finally {
+      isSubmitting = false;
+
+      if (contactSubmitButton) {
+        contactSubmitButton.disabled = false;
+        contactSubmitButton.textContent = "SEND MESSAGE";
+      }
+    }
   });
+  /* Contact Form Submission Ended */
 }

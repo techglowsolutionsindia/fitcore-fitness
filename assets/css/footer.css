@@ -18,9 +18,20 @@
    FOOTER LOGO
 ================================================== */
 
+/* Footer SVG Logo Started */
 .footer-logo {
-  color: var(--color-white);
+  display: inline-block;
+  width: 230px;
+  max-width: 100%;
 }
+
+.footer-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+/* Footer SVG Logo Ended */
 
 .footer-brand p {
   max-width: 290px;
