@@ -184,6 +184,55 @@ if (contactForm && contactSuccessMessage) {
   let successTimer;
   let isSubmitting = false;
 
+  /* Contact Phone Number Validation Started */
+  const phoneInput = contactForm.querySelector("#phone");
+  const phonePrefix = "+91 ";
+
+  if (phoneInput) {
+    phoneInput.value = phonePrefix;
+
+    phoneInput.addEventListener("focus", () => {
+      if (!phoneInput.value.trim()) {
+        phoneInput.value = phonePrefix;
+      }
+
+      if (phoneInput.value === phonePrefix) {
+        phoneInput.setSelectionRange(phonePrefix.length, phonePrefix.length);
+      }
+    });
+
+    phoneInput.addEventListener("input", () => {
+      const value = phoneInput.value;
+
+      if (!value || value === "+91") {
+        phoneInput.value = phonePrefix;
+        return;
+      }
+
+      if (value.startsWith(phonePrefix)) {
+        const digits = value.slice(phonePrefix.length).replace(/\D/g, "");
+
+        phoneInput.value = phonePrefix + digits.slice(0, 10);
+        return;
+      }
+
+      if (value.startsWith("+")) {
+        phoneInput.value = value.replace(/[^\d+ ]/g, "");
+        return;
+      }
+
+      const digits = value.replace(/\D/g, "");
+      phoneInput.value = phonePrefix + digits.slice(0, 10);
+    });
+
+    phoneInput.addEventListener("blur", () => {
+      if (!phoneInput.value.trim()) {
+        phoneInput.value = phonePrefix;
+      }
+    });
+  }
+  /* Contact Phone Number Validation Ended */
+
   /* Contact Form Submission Started */
   contactForm.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -209,6 +258,22 @@ if (contactForm && contactSuccessMessage) {
 
     if (Object.values(payload).some((value) => !value)) {
       alert("Please complete all required fields.");
+      return;
+    }
+
+    const phoneMatch = payload.phone.match(/^\+([1-9]\d{0,2}) (\d{4,14})$/);
+
+    const isValidPhone =
+      phoneMatch &&
+      (phoneMatch[1] === "91"
+        ? /^[6-9]\d{9}$/.test(phoneMatch[2])
+        : phoneMatch[1].length + phoneMatch[2].length <= 15);
+
+    if (!isValidPhone) {
+      alert(
+        "Please enter a valid phone number with country code and a space, for example +91 9876543210.",
+      );
+      phoneInput?.focus();
       return;
     }
 
@@ -243,6 +308,10 @@ if (contactForm && contactSuccessMessage) {
 
         contactSuccessMessage.classList.add("show");
         contactForm.reset();
+
+        if (phoneInput) {
+          phoneInput.value = phonePrefix;
+        }
 
         successTimer = setTimeout(() => {
           contactSuccessMessage.classList.remove("show");
