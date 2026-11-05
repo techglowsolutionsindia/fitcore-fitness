@@ -159,7 +159,8 @@ setInterval(() => {
 function validateContact(body) {
   const name = cleanText(body.name, 60);
   const email = cleanText(body.email, 254).toLowerCase();
-  const phone = cleanText(body.phone, 30).replace(/\D/g, "");
+  const phoneInput = cleanText(body.phone, 30);
+  const phone = phoneInput.replace(/^\+91\s*/, "").replace(/\D/g, "");
   const message = cleanText(body.message, 1000);
   const membership = cleanText(body.membership, 100);
 
