@@ -1,0 +1,8 @@
+# FitCore Fitness Robots Configuration Started
+
+User-agent: *
+Allow: /
+
+Sitemap: https://techglowsolutionsindia.github.io/fitcore-fitness/sitemap.xml
+
+# FitCore Fitness Robots Configuration Ended

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- FitCore Fitness XML Sitemap Started -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage Started -->
+  <url>
+    <loc>https://techglowsolutionsindia.github.io/fitcore-fitness/</loc>
+  </url>
+  <!-- Homepage Ended -->
+
+  <!-- Trainers Page Started -->
+  <url>
+    <loc>https://techglowsolutionsindia.github.io/fitcore-fitness/trainers.html</loc>
+  </url>
+  <!-- Trainers Page Ended -->
+
+</urlset>
+<!-- FitCore Fitness XML Sitemap Ended -->
