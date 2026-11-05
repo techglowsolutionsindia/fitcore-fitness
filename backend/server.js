@@ -37,7 +37,7 @@ app.use(
 app.use(express.json({ limit: "20kb" }));
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const PHONE_PATTERN = /^[6-9]\d{9}$/;
+const PHONE_PATTERN = /^\+([1-9]\d{0,2}) (\d{4,14})$/;
 const NAME_PATTERN =
   /^[A-Za-zÀ-ÿ\u0900-\u097F][A-Za-zÀ-ÿ\u0900-\u097F\s.'-]{1,59}$/;
 
@@ -159,8 +159,7 @@ setInterval(() => {
 function validateContact(body) {
   const name = cleanText(body.name, 60);
   const email = cleanText(body.email, 254).toLowerCase();
-  const phoneInput = cleanText(body.phone, 30);
-  const phone = phoneInput.replace(/^\+91\s*/, "").replace(/\D/g, "");
+  const phone = cleanText(body.phone, 30);
   const message = cleanText(body.message, 1000);
   const membership = cleanText(body.membership, 100);
 
@@ -168,8 +167,18 @@ function validateContact(body) {
     return { error: "Please enter a valid name." };
   }
 
-  if (!PHONE_PATTERN.test(phone)) {
-    return { error: "Please enter a valid 10-digit mobile number." };
+  const phoneMatch = phone.match(PHONE_PATTERN);
+
+  const isValidPhone =
+    phoneMatch &&
+    (phoneMatch[1] === "91"
+      ? /^[6-9]\d{9}$/.test(phoneMatch[2])
+      : phoneMatch[1].length + phoneMatch[2].length <= 15);
+
+  if (!isValidPhone) {
+    return {
+      error: "Please enter a valid phone number with country code and a space.",
+    };
   }
 
   if (!EMAIL_PATTERN.test(email) || email.length > 254) {
